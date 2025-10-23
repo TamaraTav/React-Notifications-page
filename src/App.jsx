@@ -9,7 +9,7 @@ function App() {
   const [notifications, setNotifications] = useState(data);
 
   return (
-    <>
+    <div className="app-container">
       <Starter
         notifications={notifications}
         setNotifications={setNotifications}
@@ -26,7 +26,7 @@ function App() {
           );
         })}
       </main>
-    </>
+    </div>
   );
 }
 

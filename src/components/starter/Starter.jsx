@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./starter.css";
 
 export default function Starter({ notifications, setNotifications }) {
   const markAllAsRead = () => {
@@ -15,12 +16,17 @@ export default function Starter({ notifications, setNotifications }) {
   ).length;
 
   return (
-    <section>
-      <h2>Notifications {counter}</h2>
-      <p onClick={markAllAsRead} style={{ cursor: "pointer" }}>
-        Mark all as read
-      </p>
-    </section>
+    <div className="starter-container">
+      <div className="starter-header">
+        <h1 className="starter-title">
+          Notifications
+          {counter > 0 && <span className="unread-badge">{counter}</span>}
+        </h1>
+        <p className="mark-all-read" onClick={markAllAsRead}>
+          Mark all as read
+        </p>
+      </div>
+    </div>
   );
 }
 

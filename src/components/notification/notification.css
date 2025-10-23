@@ -1,13 +1,89 @@
 .notification {
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px solid red;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
   cursor: pointer;
+  position: relative;
 }
 
-.read {
+.notification:hover {
+  background-color: #f7fafd;
+}
+
+.notification.unread {
+  background-color: #f7fafd;
+}
+
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #5e6778;
+  margin: 0;
+}
+
+.username {
+  font-weight: 800;
+  color: #1c202b;
+}
+
+.post-title {
+  font-weight: 800;
+  color: #1c202b;
+}
+
+.group-name {
+  font-weight: 800;
+  color: #0a327a;
+}
+
+.timestamp {
+  font-size: 16px;
+  color: #939dae;
+  margin: 4px 0 0 0;
+}
+
+.message-content {
+  border: 1px solid #e5effa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  background-color: #f7fafd;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #5e6778;
+}
+
+.user-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.unread-dot {
   width: 8px;
   height: 8px;
+  background-color: #f65552;
   border-radius: 50%;
-  background-color: red;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }

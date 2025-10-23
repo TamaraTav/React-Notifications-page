@@ -6,44 +6,59 @@ export default function Notification({
   notifications,
   setNotifications,
 }) {
+  const markAsRead = () => {
+    const newNotifications = notifications.map((currentMessage) => {
+      if (notification.id === currentMessage.id) {
+        return {
+          ...currentMessage,
+          isRead: true,
+        };
+      }
+      return currentMessage;
+    });
+
+    setNotifications(newNotifications);
+  };
+
   return (
     <div
-      className="notification"
-      style={!notification.isRead ? { backgroundColor: "green" } : {}}
-      onClick={() => {
-        const newNotifications = notifications.map((currentMessage) => {
-          if (notification.id === currentMessage.id) {
-            return {
-              ...currentMessage,
-              isRead: true,
-            };
-          }
-          return currentMessage;
-        });
-
-        setNotifications(newNotifications);
-      }}
+      className={`notification ${!notification.isRead ? "unread" : ""}`}
+      onClick={markAsRead}
     >
-      <img src={notification.profilePic} alt="" />
-      <span>
-        {notification.username} {notification.action}{" "}
-        {notification.post ? (
-          <span className="post">{notification.post}</span>
-        ) : null}{" "}
-        {notification.groupName ? (
-          <span className="group-name">{notification.groupName}</span>
-        ) : null}
-      </span>
+      <img
+        src={notification.profilePic}
+        alt={`${notification.username} profile`}
+        className="profile-pic"
+      />
 
-      <p>{notification.time}</p>
+      <div className="notification-content">
+        <p className="notification-text">
+          <span className="username">{notification.username}</span>
+          {notification.action}
+          {notification.post && (
+            <span className="post-title"> {notification.post}</span>
+          )}
+          {notification.groupName && (
+            <span className="group-name"> {notification.groupName}</span>
+          )}
+        </p>
 
-      {notification.text ? <p>{notification.text}</p> : null}
+        <p className="timestamp">{notification.time}</p>
 
-      {notification.userPicture ? (
-        <img src={notification.userPicture} alt="" />
-      ) : null}
+        {notification.text && (
+          <div className="message-content">{notification.text}</div>
+        )}
+      </div>
 
-      {!notification.isRead ? <div className="read"></div> : null}
+      {notification.userPicture && (
+        <img
+          src={notification.userPicture}
+          alt="User content"
+          className="user-picture"
+        />
+      )}
+
+      {!notification.isRead && <div className="unread-dot"></div>}
     </div>
   );
 }

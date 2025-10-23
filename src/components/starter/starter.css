@@ -1,0 +1,47 @@
+.starter-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 32px;
+  margin: 0 0 8px 0;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.starter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.starter-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1c202b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.unread-badge {
+  background-color: #0a327a;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.mark-all-read {
+  color: #5e6778;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mark-all-read:hover {
+  color: #0a327a;
+}
